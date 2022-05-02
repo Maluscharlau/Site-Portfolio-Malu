@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=IBM+Plex+Mono:wght@100&family=Rubik+Bubbles&family=Rubik+Moonrocks&display=swap');
+
+.fontGrape{
+  font-family: 'Grape Nuts', cursive;
+}
+.fontIBM{
+  font-family: 'IBM Plex Mono', monospace;
+}
+.fontRubik{
+  font-family: 'Rubik Bubbles', cursive;
+}
+.fontMoon{
+  font-family: 'Rubik Moonrocks', cursive;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+::-webkit-scrollbar-track {
+  background: #F5E6E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #87B6A7;
+  border-radius: 20vh;
+  border:1px solid #648f81;
+}
