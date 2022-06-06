@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar"
 import SectorTitle from "./components/SectorTitle"
 import ProjectList from "./components/ProjectList"
+import Contact from "./components/Contact"
 import Head from 'next/head'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <ProjectList category="pai"/>
       <SectorTitle title="URBANISMO"/>
       <ProjectList category="urb"/>
+      <Contact/>
     </div>
   )
 }
