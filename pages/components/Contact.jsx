@@ -3,6 +3,7 @@ import emailLogo from ".//../../public/email.jpg"
 import linkedin from ".//../../public/linkedin.jpg"
 import whats from ".//../../public/whats.jpg"
 import Image from "next/image"
+import Swal from 'sweetalert2'
 
 function Contact() {
   const [noteData, setNoteData] = useState({
