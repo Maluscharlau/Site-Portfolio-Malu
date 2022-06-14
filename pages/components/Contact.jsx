@@ -16,18 +16,40 @@ function Contact() {
           [e.target.name]: e.target.value
       })
   }
+
   const send = async (e)=>{
     e.preventDefault(e)
+    Swal.fire({
+      title: noteData.name + ', confirme que a messagem está correta.',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Sim',
+      denyButtonText: `Quero alterar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        fetch(`http://127.0.0.1:8000/api/notes/create`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(noteData)
+        })
+        setNoteData({
+          name:noteData.name,
+          email:noteData.email,
+          body: "",
+         })
+        Swal.fire('enviado', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Seu contato é muito importante. Faca a alteracao necessária e envie.', '', 'info')
+      }
+    })
 
-    alert("Por favor, entre em contato por e-mail. Esse formulário nao está funcionando");
-    setNoteData({
-      name:noteData.name,
-      email:noteData.email,
-      body: "",
-     })
+
   }
   return (
-    <section className="flex flex-col h-screen w-full h-full m-1 justify-center">
+    <section className="flex flex-col h-screen h-full m-1 justify-center">
       <form onSubmit={send} onChange={handleChange} className="flex flex-col sm:flex-row flex-wrap m-10 w-5/6 h-5/6 justify-items-start">
         <label for="name" className="w-2/3 h-5">Nome:</label>
         <input id="name" type='text' name='name' placeholder='Nome' value={noteData.name} className="m-1 border-2 border-headerColor w-full h-5" required/>
