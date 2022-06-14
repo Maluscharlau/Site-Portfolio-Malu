@@ -28,7 +28,7 @@ function Contact() {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        fetch(`http://127.0.0.1:8000/api/notes/create`, {
+        fetch(`http://165.227.181.97:8000/api/notes/create`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
